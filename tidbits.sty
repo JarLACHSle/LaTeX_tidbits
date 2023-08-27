@@ -1,0 +1,88 @@
+% == Id ==
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{tidbits}[2023/08/26 maths package]
+
+% == Pakete ==
+\RequirePackage{amsmath,amssymb,amsfonts,amscd,mathtools,amsthm,tikz,wrapfig,stmaryrd,mathdots,color,colortbl}
+\RequirePackage{bm,float,csquotes}
+    
+% == Spezifische Infos  ==
+% [/einfügen]
+\newcommand{\WASLANG}{Unwahrscheinlickeitsrechnung 12}
+\newcommand{\WASKURZ}{UWR12}
+\newcommand{\WERLANG}{Max Mustermann 12345, Mara Musterfrau 67890}
+\newcommand{\WERKURZ}{Max Mustermann, Mara Musterfrau}
+\newcommand{\UNI}{Universität der Stadt}
+\newcommand{\SEMESTER}{Sommersemester 2042}
+\newcommand{\INSTITUT}{Institut für Forschung}
+\newcommand{\LEHRENDE}{Prof. Dr. Smart, Assistent}
+%[\einfügen]
+
+\usepackage{fancyhdr}
+    \lhead{\textbf{\WASKURZ Hausaufgabe \Blattnummer}}
+    \chead{\today}
+    \rhead{\WERKURZ}
+
+\newcommand{\header}{
+    \textbf{\UNI} \hfill {\SEMESTER}	\\
+	\textbf{\INSTITUT} \hfill
+	\LEHRENDE
+	\begin{center}
+		\LARGE{\textbf{\WASLANG\, - Hausaufgabe \Blattnummer}} \\\normalsize 
+		\textsc{\WERLANG}
+        \rule{\textwidth}{2pt}
+	\end{center}
+\normalsize
+\pagestyle{fancy} % benutzt obigen kurzen Header
+\thispagestyle{plain} % erste Seite ohne Kurz-Header
+} % Header erfordert, dass am Anfang jedes Blattes mit \Blattnummer die aktuelle Version deklariert wird !
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    pdftitle={\WASKURZ-HA\Blattnummer},
+    pdfpagemode=FullScreen,
+    }
+    
+% == Deklarationen ==
+\renewcommand{\phi}{\varphi} % schöneres Phi
+\newcommand{\eps}{\varepsilon} % schöneres Epsilon
+\newcommand{\e}{\mathrm{e}} % aufrechtes Epsilon
+
+\newcommand{\abs}[1]{\left|#1\right|} % Absolutbetrag
+\newcommand{\pts}[1]{\left(#1\right)} % Klammern
+\newcommand{\lra}[1]{\left\langle #1 \right\rangle} % Span, Erzeugnis
+
+\newcommand{\qt}[1]{\glqq #1\grqq} % deutsche Anführungszeichen
+
+\newcommand{\RZ}[1]{\textup{\uppercase\expandafter{\romannumeral#1}}} % römische Ziffern
+
+% Mengen
+\DeclareMathOperator{\N}{\mathbb{N}} % natürliche
+\DeclareMathOperator{\Z}{\mathbb{Z}} % ganze
+\DeclareMathOperator{\Q}{\mathbb{Q}} % rationale
+\DeclareMathOperator{\R}{\mathbb{R}} % reelle
+\DeclareMathOperator{\C}{\mathbb{C}} % komplexe
+\renewcommand{\P}{\mathcal{P}} % Potenzmenge
+\renewcommand{\c}{^\complement} % Komplement
+\DeclareMathOperator{\wo}{\backslash} % Ausschluss
+
+% Matrizen und lineare Abbildungen
+\DeclareMathOperator{\rang}{rang} % Rang
+\DeclareMathOperator{\tr}{tr} % Spur 
+\DeclareMathOperator{\id}{id} % Identität
+\DeclareMathOperator{\nullv}{\mathcal{O}} %Nullvektor
+\DeclareMathOperator{\GL}{GL} % Menge der invertierbaren Matrizen
+\DeclareMathOperator{\CO}{\mathcal{C}} % Menge der stetigen Funktionen
+\let\Im\relax\DeclareMathOperator{\Im}{Im} % Bild
+\DeclareMathOperator{\Ker}{Kern} % Kern
+\let\ker\relax\DeclareMathOperator{\ker}{Kern}
+\DeclareMathOperator{\Hom}{Hom} % Homomorphismen
+\newcommand{\T}{^{\mkern-1.5mu\mathsf{T}}} % Transposition
+\DeclareMathOperator{\sgn}{sgn} % Signum einer Permutation
+\newcommand{\inv}{^{-1}} % Inverse
+
+%TODO

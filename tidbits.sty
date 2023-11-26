@@ -5,7 +5,11 @@
 % == Pakete ==
 \RequirePackage{amsmath,amssymb,amsfonts,amscd,mathtools,amsthm,tikz,wrapfig,stmaryrd,mathdots,color,colortbl}
 \RequirePackage{bm,float,csquotes}
-    
+\RequirePackage{marvosym}
+\RequirePackage{stmaryrd}
+\RequirePackage{pdfpages}
+\RequirePackage{graphicx}
+  
 % == Spezifische Infos  ==
 % [/einfügen]
 \newcommand{\WASLANG}{Unwahrscheinlickeitsrechnung 12}
@@ -50,7 +54,7 @@
 % == Deklarationen ==
 \renewcommand{\phi}{\varphi} % schöneres Phi
 \newcommand{\eps}{\varepsilon} % schöneres Epsilon
-\newcommand{\e}{\mathrm{e}} % aufrechtes Epsilon
+\newcommand{\e}{\mathrm{e}} % aufrechtes e
 
 \newcommand{\abs}[1]{\left|#1\right|} % Absolutbetrag
 \newcommand{\pts}[1]{\left(#1\right)} % Klammern
@@ -66,6 +70,8 @@
 \DeclareMathOperator{\Q}{\mathbb{Q}} % rationale
 \DeclareMathOperator{\R}{\mathbb{R}} % reelle
 \DeclareMathOperator{\C}{\mathbb{C}} % komplexe
+\DeclareMathOperator{\Prim}{\mathbb{P}} % Primzahlen
+\DeclareMathOperator{\K}{\mathbb{K}} % Körper
 \renewcommand{\P}{\mathcal{P}} % Potenzmenge
 \renewcommand{\c}{^\complement} % Komplement
 \DeclareMathOperator{\wo}{\backslash} % Ausschluss
@@ -73,7 +79,8 @@
 % Matrizen und lineare Abbildungen
 \DeclareMathOperator{\rang}{rang} % Rang
 \DeclareMathOperator{\tr}{tr} % Spur 
-\DeclareMathOperator{\id}{id} % Identität
+\newcommand{\Id}[1][n]{\mathrm{I}_{#1\times #1}} %Identität auf Ringen von quadratischen Matrizen
+\newcommand{\Null}[1][n]{\mathrm{0}_{#1 \times #1}} % Nullelement -||-
 \DeclareMathOperator{\nullv}{\mathcal{O}} %Nullvektor
 \DeclareMathOperator{\GL}{GL} % Menge der invertierbaren Matrizen
 \DeclareMathOperator{\CO}{\mathcal{C}} % Menge der stetigen Funktionen
@@ -82,7 +89,76 @@
 \let\ker\relax\DeclareMathOperator{\ker}{Kern}
 \DeclareMathOperator{\Hom}{Hom} % Homomorphismen
 \newcommand{\T}{^{\mkern-1.5mu\mathsf{T}}} % Transposition
-\DeclareMathOperator{\sgn}{sgn} % Signum einer Permutation
 \newcommand{\inv}{^{-1}} % Inverse
+\newcommand{\Eig}[1]{\mathrm{Eig}(#1)} %Eigenraum
+
+%Algebra und Kombinatorik
+\newcommand{\ggT}[1]{\mathrm{ggT}(#1)} % größter gemeinsamer Teiler
+\DeclareMathOperator{\sgn}{sgn} % Signum einer Permutation
+
+% Normen
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert} % allg. Norm
+\newcommand{\normeuk}[1]{\left\lVert#1\right\rVert_2} % euklidische Norm
+\newcommand{\normmax}[1]{\left\lVert#1\right\rVert_{\infty}} % Supremums-/Maximumsnorm
+\newcommand{\normop}[1]{\left\lVert#1\right\rVert_{\mathrm{op}}} % Operatornorm
+
+%Abbildungen
+\DeclareMathOperator{\id}{id} % Identitätsabbildung
+
+% == Umgebungen == 
+\usepackage{framed}
+\setlength{\OuterFrameSep}{0pt}
+\renewenvironment{leftbar}[1][\hsize]
+{%
+    \def\FrameCommand
+    {%
+        {\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{gray!10!white}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+
+    %Aufgabe
+\newcounter{Aufgabe}
+
+\newenvironment{Aufgabe}[1][\hsize]
+{%
+    \refstepcounter{Aufgabe}
+    \def\FrameCommand
+    {%
+        {\vrule width 3pt}%
+        \hspace{0pt}%must no space.
+        \fboxsep=\FrameSep\colorbox{gray!10!white}%
+    }%
+    \MakeFramed{\hsize#1 \textbf{Aufgabe \Blattnummer.\theAufgabe. {}}\advance\hsize-\width\FrameRestore}%
+}
+{\endMakeFramed}
+
+\newcommand{\task}{\begin{Aufgabe}\end{Aufgabe}\nointerlineskip} % Aufgabenumgebung kompakt
+
+\newcounter{subtaskc}[Aufgabe] % Teilaufgabenzähler
+% Teilaufgabe
+\newcommand{\subtask}{
+\stepcounter{subtaskc}
+%{\vrule width 3pt}
+\textbf{Teilaufgabe (\roman{subtaskc}):\quad}  
+%alph for lc letters; roman for i,ii; Alph for uc
+}
+%
+\newenvironment{leftbar1}[1][\hsize]
+{%
+    \def\FrameCommand
+    {%
+        {\vrule width 3pt}%
+        \hspace{6pt}%must no space.
+        \fboxsep2pt
+        \colorbox{white}%
+    }%
+    \MakeFramed{\hsize#1\advance\hsize-\width\FrameRestore}%
+    \nointerlineskip
+}
+{\endMakeFramed}
 
 %TODO

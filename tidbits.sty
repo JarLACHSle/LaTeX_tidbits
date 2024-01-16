@@ -56,13 +56,17 @@
 \newcommand{\eps}{\varepsilon} % schöneres Epsilon
 \newcommand{\e}{\mathrm{e}} % aufrechtes e
 
+ % misc
 \newcommand{\abs}[1]{\left|#1\right|} % Absolutbetrag
 \newcommand{\pts}[1]{\left(#1\right)} % Klammern
-\newcommand{\lra}[1]{\left\langle #1 \right\rangle} % Span, Erzeugnis
+\newcommand{\dg}{^{\circ}} %Grad, innerer Kern
 
 \newcommand{\qt}[1]{\glqq #1\grqq} % deutsche Anführungszeichen
 
 \newcommand{\RZ}[1]{\textup{\uppercase\expandafter{\romannumeral#1}}} % römische Ziffern
+
+\let\stmaryrdLightning\lightning
+\newcommand{\contradict}{\Large{\stmaryrdLightning}} % Widerspruchsblitz
 
 % Mengen
 \DeclareMathOperator{\N}{\mathbb{N}} % natürliche
@@ -79,6 +83,8 @@
 % Matrizen und lineare Abbildungen
 \DeclareMathOperator{\rang}{rang} % Rang
 \DeclareMathOperator{\tr}{tr} % Spur 
+\newcommand{\T}{^{\mkern-1.5mu\mathsf{T}}} % Transposition
+\newcommand{\inv}{^{-1}} % Inverse
 \newcommand{\Id}[1][n]{\mathrm{I}_{#1\times #1}} %Identität auf Ringen von quadratischen Matrizen
 \newcommand{\Null}[1][n]{\mathrm{0}_{#1 \times #1}} % Nullelement -||-
 \DeclareMathOperator{\nullv}{\mathcal{O}} %Nullvektor
@@ -88,9 +94,18 @@
 \DeclareMathOperator{\Ker}{Kern} % Kern
 \let\ker\relax\DeclareMathOperator{\ker}{Kern}
 \DeclareMathOperator{\Hom}{Hom} % Homomorphismen
-\newcommand{\T}{^{\mkern-1.5mu\mathsf{T}}} % Transposition
-\newcommand{\inv}{^{-1}} % Inverse
 \newcommand{\Eig}[1]{\mathrm{Eig}(#1)} %Eigenraum
+\DeclareMathOperator{\id}{id} % Identitätsabbildung
+\newcommand{\?}[1]{\multicolumn{1}{c|}{#1}} % vertikale Linien in Matrizen
+\newcommand{\lra}[1]{\left\langle #1 \right\rangle} % Span, Erzeugnis
+
+% Befehl für erweiterte Koeffizientenmatrix
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+  \hskip -\arraycolsep
+  \let\@ifnextchar\new@ifnextchar
+  \array{#1}}
+\makeatother
 
 %Algebra und Kombinatorik
 \newcommand{\ggT}[1]{\mathrm{ggT}(#1)} % größter gemeinsamer Teiler
@@ -106,10 +121,12 @@
 \DeclareMathOperator{\grad}{\mathrm{grad}} % Gradient
 \DeclareMathOperator{\diverg}{\mathrm{div}} % Divergenz
 
-%Abbildungen
-\DeclareMathOperator{\id}{id} % Identitätsabbildung
-
 % == Umgebungen == 
+
+\newtheorem*{toshow}{Z.z} % Abgesetzte Theoreme
+\newtheorem*{theorem}{Satz} % füge [von ...] hinzu o.ä.
+\newtheorem{lemma}{Lemma} %lemmata 
+
 \usepackage{framed}
 \setlength{\OuterFrameSep}{0pt}
 \renewenvironment{leftbar}[1][\hsize]

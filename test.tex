@@ -3,6 +3,7 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage[document]{ragged2e}
+\usepackage[a4paper,left=25mm,right=25mm,top=25mm,bottom=25mm]{geometry}
 %==========================
 \newcommand{\Blattnummer}{5}
 %==========================
@@ -10,7 +11,80 @@
 \usepackage{pdfpages}
 
 \begin{document}
- $\Id$\\
- $\id$ \\
- $\Id[d]$
+\begin{figure}[ht]
+        \centering
+        \begin{tikzpicture}
+            \GraphInit[vstyle=welsh,unit=.8]
+            \SetVertexLabel
+            \Vertex {6}
+            \AddVertexColor{green}{6}
+        \end{tikzpicture}
+        \hspace{5mm}
+        \begin{tikzpicture}
+            \GraphInit[vstyle=welsh,unit=.8]
+            \SetVertexLabel
+            \Vertex {6}
+            \SOWE(6){3}
+                \Edges(6,3)
+            \AddVertexColor{green}{3}
+        \end{tikzpicture}
+        \hspace{5mm}
+            \begin{tikzpicture}
+            \GraphInit[vstyle=welsh,unit=.8]
+            \SetVertexLabel
+            \Vertex {6}
+            \SOWE(6){3}
+                \Edges(6,3)
+            \SOEA(3){5}
+                \Edges(3,5)
+            \AddVertexColor{green}{5}
+        \end{tikzpicture}
+        \hspace{5mm}
+            \begin{tikzpicture}
+            \GraphInit[vstyle=welsh,unit=.8]
+            \SetVertexLabel
+            \Vertex {6}
+            \SOWE(6){3}
+                \Edges(6,3)
+            \SOEA(3){5}
+                \Edges(3,5)
+            \SOWE(3){2}
+                \Edges(3,2)
+            \AddVertexColor{green}{2}
+        \end{tikzpicture}
+        \hspace{5mm}
+            \begin{tikzpicture}
+            \GraphInit[vstyle=welsh,unit=.8]
+            \SetVertexLabel
+            \Vertex {6}
+            \SOWE(6){3}
+                \Edges(6,3)
+            \SOEA(3){5}
+                \Edges(3,5)
+            \SOWE(3){2}
+                \Edges(3,2)
+            \SOWE(5){4}
+                \Edges(5,4)
+            \AddVertexColor{green}{4}
+        \end{tikzpicture}
+            \hspace{5mm}
+            \begin{tikzpicture}
+            \GraphInit[vstyle=welsh,unit=.8]
+            \SetVertexLabel
+            \Vertex {6}
+            \SOWE(6){3}
+                \Edges(6,3)
+            \SOEA(3){5}
+                \Edges(3,5)
+            \SOWE(3){2}
+                \Edges(3,2)
+            \SOWE(5){4}
+                \Edges(5,4)
+            \SOWE(2){1}
+                \Edges(2,1)
+            \AddVertexColor{green}{1}
+        \end{tikzpicture}
+        \caption{Erstellung eines suboptimalen statischen Suchbaumes}
+        \label{fig:naive-static-bst}
+    \end{figure}
 \end{document}

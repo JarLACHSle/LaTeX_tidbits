@@ -9,6 +9,9 @@
 \RequirePackage{stmaryrd}
 \RequirePackage{pdfpages}
 \RequirePackage{graphicx}
+\RequirePackage{manfnt} % Symbole
+\RequirePackage{tkz-graph} % schöne Graphen
+\RequirePackage[edges]{forest} % einfache reduzierte Bäume
   
 % == Spezifische Infos  ==
 % [/einfügen]
@@ -60,6 +63,7 @@
 \newcommand{\abs}[1]{\left|#1\right|} % Absolutbetrag
 \newcommand{\pts}[1]{\left(#1\right)} % Klammern
 \newcommand{\dg}{^{\circ}} %Grad, innerer Kern
+\newcommand{\limn}{\lim_{n \to \infty}} %Limes
 
 \newcommand{\qt}[1]{\glqq #1\grqq} % deutsche Anführungszeichen
 
@@ -68,7 +72,10 @@
 \let\stmaryrdLightning\lightning
 \newcommand{\contradict}{\Large{\stmaryrdLightning}} % Widerspruchsblitz
 
+\newcommand{\ii}{\mathrm{i}} %aufrechtes i
+
 % Mengen
+\newcommand{\set}[1]{\left\{#1\right\}} % Menge
 \DeclareMathOperator{\N}{\mathbb{N}} % natürliche
 \DeclareMathOperator{\Z}{\mathbb{Z}} % ganze
 \DeclareMathOperator{\Q}{\mathbb{Q}} % rationale
@@ -79,6 +86,7 @@
 \renewcommand{\P}{\mathcal{P}} % Potenzmenge
 \renewcommand{\c}{^\complement} % Komplement
 \DeclareMathOperator{\wo}{\backslash} % Ausschluss
+\newcommand{\ocup}{\dot{\cup}} % disjunkte Vereinigung
 
 % Matrizen und lineare Abbildungen
 \DeclareMathOperator{\rang}{rang} % Rang
@@ -120,6 +128,29 @@
 % Differentialrechnung
 \DeclareMathOperator{\grad}{\mathrm{grad}} % Gradient
 \DeclareMathOperator{\diverg}{\mathrm{div}} % Divergenz
+\DeclareMathOperator{\rot}{\mathrm{rot}} % Rotation
+\newcommand{\dd}{\mathrm{d}} % aufrechtes d
+    \newcommand{\dx}{\mathrm{d}x} % dx
+    \newcommand{\dy}{\mathrm{d}y} % dy
+    \newcommand{\dmu}{\mathrm{d}\mu} % dy
+    \newcommand{\dlam}{\mathrm{d}\lambda} % dy
+    \newcommand{\dt}{\mathrm{d}t} %dt
+
+% Maßtheorie
+\newcommand{\SigA}{$\sigma$-Algebra } 
+\DeclareMathOperator{\A}{\mathcal{A}} % Sigma-Algebra
+\DeclareMathOperator{\F}{\mathcal{F}} %  mehr Sigma-Algebren
+\DeclareMathOperator{\B}{\mathfrak{B}} % Borel
+\DeclareMathOperator{\E}{\mathcal{E}} % Bild-Sigma-Algebra
+\DeclareMathOperator{\G}{\mathcal{G}} % gute Mengen
+\DeclareMathOperator{\PP}{\mathbb{P}} % W-Maß
+\DeclareMathOperator{\Reg}{\mathcal{R}_{eg}} % Ring der elementargeometrischen Mengen
+\newcommand{\bim}{\mu \circ g\inv} % Bildmaß 
+\newcommand{\conv}[1]{\mathrm{conv}(\{#1\})} % konvexe Hülle
+
+% Wahrscheinlickeitstheorie
+\newcommand{\1}{\mathds{1}} % Indikatorfunktion
+\newcommand{\X}{\mathbb{X}} % Zufallsvektor
 
 % == Umgebungen == 
 

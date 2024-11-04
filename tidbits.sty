@@ -53,7 +53,12 @@
     pdftitle={\WASKURZ-HA\Blattnummer},
     pdfpagemode=FullScreen,
     }
-    
+
+% Tabellenspalten-Typen mit automatischer Matheumgebung
+\newcolumntype{C}{>{$}c<{$}}
+\newcolumntype{L}{>{$}l<{$}}
+\newcolumntype{R}{>{$}r<{$}}
+
 % == Deklarationen ==
 \renewcommand{\phi}{\varphi} % schöneres Phi
 \newcommand{\eps}{\varepsilon} % schöneres Epsilon
@@ -73,6 +78,14 @@
 \newcommand{\contradict}{\Large{\stmaryrdLightning}} % Widerspruchsblitz
 
 \newcommand{\ii}{\mathrm{i}} %aufrechtes i
+
+\DeclareMathOperator*{\esssup}{ess\,sup} % allgemeine Operatoren
+\DeclareMathOperator*{\essinf}{ess\,inf}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+% Formatierungen
+\newcommand{\supeq}[1]{\stackrel{\text{#1}}{=}} % übersetztes Gleichheitszeichen
 
 % Mengen
 \newcommand{\set}[1]{\left\{#1\right\}} % Menge
@@ -118,6 +131,7 @@
 %Algebra und Kombinatorik
 \newcommand{\ggT}[1]{\mathrm{ggT}(#1)} % größter gemeinsamer Teiler
 \DeclareMathOperator{\sgn}{sgn} % Signum einer Permutation
+\newcommand{\ord}{\mathrm{ord}} % Ordnung eines Gruppenelements
 
 % Normen
 \newcommand{\norm}[1]{\left\lVert#1\right\rVert} % allg. Norm
@@ -141,7 +155,7 @@
 \DeclareMathOperator{\A}{\mathcal{A}} % Sigma-Algebra
 \DeclareMathOperator{\F}{\mathcal{F}} %  mehr Sigma-Algebren
 \DeclareMathOperator{\B}{\mathfrak{B}} % Borel
-\DeclareMathOperator{\E}{\mathcal{E}} % Bild-Sigma-Algebra
+\DeclareMathOperator{\cE}{\mathcal{E}} % Bild-Sigma-Algebra
 \DeclareMathOperator{\G}{\mathcal{G}} % gute Mengen
 \DeclareMathOperator{\PP}{\mathbb{P}} % W-Maß
 \DeclareMathOperator{\Reg}{\mathcal{R}_{eg}} % Ring der elementargeometrischen Mengen
@@ -151,6 +165,18 @@
 % Wahrscheinlickeitstheorie
 \newcommand{\1}{\mathds{1}} % Indikatorfunktion
 \newcommand{\X}{\mathbb{X}} % Zufallsvektor
+\DeclareMathOperator{\E}{\mathbb{E}} % Erwartungswert
+\DeclareMathOperator{\cov}{Cov} % Kovarianz
+\DeclareMathOperator{\var}{Var} % Varianz
+    % WT-Konergenzbegriffe
+    \newcommand{\pconv}{\overset{\PP}{\longrightarrow}} % stochastisch
+    \newcommand{\dconv}{\overset{d}{\longrightarrow}} % in Verteilung
+    \newcommand{\wconv}{\overset{w}{\longrightarrow}} % schwach (= in Verteilung)
+    \newcommand{\fsconv}{\overset{f.s.}{\longrightarrow}} % fast sicher
+
+%rotierte Dinge
+\newcommand\Copi{\rotatebox[origin=c]{180}{$\prod$}}
+
 
 % == Umgebungen == 
 
@@ -212,5 +238,45 @@
     \nointerlineskip
 }
 {\endMakeFramed}
+
+ % Zusatzaufgaben
+ \newcommand{\zusatz}{\begin{Zusatz}\end{Zusatz}\nointerlineskip} 
+
+% Schabernack
+\def\uiv{%
+  \kern-.1em\lower.3ex\hbox{u}\kern-.12em
+  \lower.1ex\hbox{n}\kern-.08em
+  \lower.25ex\hbox{a}\kern-.11em
+  \lower.2ex\hbox{b}\kern-.09em
+  \lower.15ex\hbox{h}\kern-.1em
+  \lower-.05ex\hbox{\"a}\kern-.13em
+  \lower.22ex\hbox{n}\kern-.14em
+  \lower.3ex\hbox{g}\kern-.09em
+  \lower.1ex\hbox{i}\kern-.15em
+  \lower.3ex\hbox{g}\kern-.13em
+  \lower.2ex\hbox{ }%
+  \kern-.1em\lower.2ex\hbox{u}\kern-.11em
+  \lower.15ex\hbox{n}\kern-.1em
+  \lower.2ex\hbox{d}\kern-.12em
+  \lower.1ex\hbox{ }%
+  \kern-.1em\lower.2ex\hbox{i}\kern-.09em
+  \lower.2ex\hbox{d}\kern-.1em
+  \lower.25ex\hbox{e}\kern-.11em
+  \lower.11ex\hbox{n}\kern-.1em
+  \lower-.05ex\hbox{t}\kern-.12em
+  \lower.15ex\hbox{i}\kern-.13em
+  \lower.2ex\hbox{s}\kern-.09em
+  \lower.3ex\hbox{c}\kern-.14em
+  \lower.1ex\hbox{h}\kern-.11em
+  \lower.2ex\hbox{ }%
+  \kern-.1em\lower.15ex\hbox{v}\kern-.1em
+  \lower.2ex\hbox{e}\kern-.13em
+  \lower.25ex\hbox{r}\kern-.1em
+  \lower.3ex\hbox{t}\kern-.14em
+  \lower.18ex\hbox{e}\kern-.1em
+  \lower.2ex\hbox{i}\kern-.09em
+  \lower-.1ex\hbox{l}\kern-.1em
+  \lower.2ex\hbox{t}%
+  }
 
 %TODO
